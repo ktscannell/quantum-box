@@ -1,7 +1,18 @@
 import '../assets/stylesheets/reset.css';
+import '../assets/stylesheets/main.css';
 
-const element = document.createElement('h1');
+const canvasElement = document.getElementById("myCanvas");
+canvasElement.width = 1200;
+canvasElement.height = 600;
 
-element.innerHTML = "Hello World";
+const ctx = canvasElement.getContext("2d");
+ctx.fillStyle = "purple";
+ctx.fillRect(0, 0, 50, 50);
 
-document.body.appendChild(element);
+ctx.beginPath();
+ctx.arc(100, 100, 20, 0, 2 * Math.PI, true);
+ctx.strokeStyle = "green";
+ctx.lineWidth = 5;
+ctx.stroke();
+ctx.fillStyle = "blue";
+ctx.fill();
