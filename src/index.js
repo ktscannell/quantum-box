@@ -1,18 +1,18 @@
 import '../assets/stylesheets/reset.css';
 import '../assets/stylesheets/main.css';
+import Graph from "./graph";
+import Simulation from "./simulation";
+import SimulationView from "./simulation_view";
 
-const canvasElement = document.getElementById("myCanvas");
-canvasElement.width = 1200;
-canvasElement.height = 600;
+document.addEventListener("DOMContentLoaded", () => {
+  const canvasElement = document.getElementById("myCanvas");
+  const graph = new Graph();
+  canvasElement.width = graph.X_DIMENSION;
+  canvasElement.height = graph.Y_DIMENSION;
 
-const ctx = canvasElement.getContext("2d");
-ctx.fillStyle = "purple";
-ctx.fillRect(0, 0, 50, 50);
+  const ctx = canvasElement.getContext("2d");
+  const simulation = new Simulation();
+  new SimulationView(simulation, ctx).start();
+});
 
-ctx.beginPath();
-ctx.arc(100, 100, 20, 0, 2 * Math.PI, true);
-ctx.strokeStyle = "green";
-ctx.lineWidth = 5;
-ctx.stroke();
-ctx.fillStyle = "blue";
-ctx.fill();
+
