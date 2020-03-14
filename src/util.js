@@ -49,6 +49,9 @@ const util = {
     return (this.minimumX() * this.HEIGHT) / this.WIDTH;
   },
 
+  xStep() {
+    return (this.maximumX() - this.minimumX()) / this.WIDTH; 
+  },
   // Returns the physical x-coordinate of a logical x-coordinate:
   mapX(x) {
     return ((x - this.minimumX()) /

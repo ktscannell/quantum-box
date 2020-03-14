@@ -7,6 +7,7 @@ export default class Graph {
   draw(ctx) {
     // Sample code for testing
     this.drawAxes(ctx);
+    this.renderMathFunction(ctx);
   }
 
   // Returns the distance between ticks on the X axis:
@@ -18,7 +19,6 @@ export default class Graph {
   yTickDelta() {
     return 1;
   }
-
 
   // DrawAxes draws the X ad Y axes, with tick marks.
   drawAxes(ctx) {
@@ -80,5 +80,22 @@ export default class Graph {
       ctx.stroke();
     }
     ctx.restore();
+  }
+
+  renderMathFunction(ctx, f) {
+    let first = true;
+
+    ctx.beginPath();
+    for (let x = util.minimumX(); x <= util.maximumX(); x += util.xStep()) {
+      // hardcode function for now
+      const y = Math.sin(x);
+      if (first) {
+        ctx.moveTo(util.mapX(x), util.mapY(y));
+        first = false;
+      } else {
+        ctx.lineTo(util.mapX(x), util.mapY(y));
+      }
+    }
+    ctx.stroke();
   }
 }
