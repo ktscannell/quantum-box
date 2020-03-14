@@ -10,8 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   canvasElement.height = util.HEIGHT;
 
   const ctx = canvasElement.getContext('2d');
-  const simulation = new Simulation();
-  new SimulationView(simulation, ctx).start();
+  new SimulationView(ctx).start();
 });
 
 

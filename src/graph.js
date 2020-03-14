@@ -1,13 +1,13 @@
 import util from './util';
 
 export default class Graph {
-  constructor() {
+  constructor(ctx) {
+    this.ctx = ctx;
   }
 
-  draw(ctx) {
+  draw() {
     // Sample code for testing
-    this.drawAxes(ctx);
-    this.renderMathFunction(ctx);
+    this.drawAxes(this.ctx);
   }
 
   // Returns the distance between ticks on the X axis:
@@ -21,81 +21,66 @@ export default class Graph {
   }
 
   // DrawAxes draws the X ad Y axes, with tick marks.
-  drawAxes(ctx) {
-    ctx.save();
-    ctx.lineWidth = 2;
+  drawAxes() {
+    this.ctx.save();
+    this.ctx.lineWidth = 2;
     // +Y axis
-    ctx.beginPath();
-    ctx.moveTo(util.mapX(0), util.mapY(0));
-    ctx.lineTo(util.mapX(0), util.mapY(util.maximumY()));
-    ctx.stroke();
+    this.ctx.beginPath();
+    this.ctx.moveTo(util.mapX(0), util.mapY(0));
+    this.ctx.lineTo(util.mapX(0), util.mapY(util.maximumY()));
+    this.ctx.stroke();
 
     // -Y axis
-    ctx.beginPath();
-    ctx.moveTo(util.mapX(0), util.mapY(0));
-    ctx.lineTo(util.mapX(0), util.mapY(util.minimumY()));
-    ctx.stroke();
+    this.ctx.beginPath();
+    this.ctx.moveTo(util.mapX(0), util.mapY(0));
+    this.ctx.lineTo(util.mapX(0), util.mapY(util.minimumY()));
+    this.ctx.stroke();
 
     // Y axis tick marks
     const yDelta = this.yTickDelta();
     for (let i = 1; (i * yDelta) < util.maximumY(); i++) {
-      ctx.beginPath();
-      ctx.moveTo(util.mapX(0) - 5, util.mapY(i * yDelta));
-      ctx.lineTo(util.mapX(0) + 5, util.mapY(i * yDelta));
-      ctx.stroke();
+      this.ctx.beginPath();
+      this.ctx.moveTo(util.mapX(0) - 5, util.mapY(i * yDelta));
+      this.ctx.lineTo(util.mapX(0) + 5, util.mapY(i * yDelta));
+      this.ctx.stroke();
     }
 
     for (let i = 1; (i * yDelta) > util.minimumY(); i--) {
-      ctx.beginPath();
-      ctx.moveTo(util.mapX(0) - 5, util.mapY(i * yDelta));
-      ctx.lineTo(util.mapX(0) + 5, util.mapY(i * yDelta));
-      ctx.stroke();
+      this.ctx.beginPath();
+      this.ctx.moveTo(util.mapX(0) - 5, util.mapY(i * yDelta));
+      this.ctx.lineTo(util.mapX(0) + 5, util.mapY(i * yDelta));
+      this.ctx.stroke();
     }
 
     // +X axis
-    ctx.beginPath();
-    ctx.moveTo(util.mapX(0), util.mapY(0));
-    ctx.lineTo(util.mapX(util.maximumX()), util.mapY(0));
-    ctx.stroke();
+    this.ctx.beginPath();
+    this.ctx.moveTo(util.mapX(0), util.mapY(0));
+    this.ctx.lineTo(util.mapX(util.maximumX()), util.mapY(0));
+    this.ctx.stroke();
 
     // -X axis
-    ctx.beginPath();
-    ctx.moveTo(util.mapX(0), util.mapY(0));
-    ctx.lineTo(util.mapX(util.minimumX()), util.mapY(0));
-    ctx.stroke();
+    this.ctx.beginPath();
+    this.ctx.moveTo(util.mapX(0), util.mapY(0));
+    this.ctx.lineTo(util.mapX(util.minimumX()), util.mapY(0));
+    this.ctx.stroke();
 
     // X tick marks
     const xDelta = this.xTickDelta();
     for (let i = 1; (i * xDelta) < util.maximumX(); i++) {
-      ctx.beginPath();
-      ctx.moveTo(util.mapX(i * xDelta), util.mapY(0) - 5);
-      ctx.lineTo(util.mapX(i * xDelta), util.mapY(0) + 5);
-      ctx.stroke();
+      this.ctx.beginPath();
+      this.ctx.moveTo(util.mapX(i * xDelta), util.mapY(0) - 5);
+      this.ctx.lineTo(util.mapX(i * xDelta), util.mapY(0) + 5);
+      this.ctx.stroke();
     }
 
     for (let i = 1; (i * xDelta) > util.minimumX(); i--) {
-      ctx.beginPath();
-      ctx.moveTo(util.mapX(i * xDelta), util.mapY(0) - 5);
-      ctx.lineTo(util.mapX(i * xDelta), util.mapY(0) + 5);
-      ctx.stroke();
+      this.ctx.beginPath();
+      this.ctx.moveTo(util.mapX(i * xDelta), util.mapY(0) - 5);
+      this.ctx.lineTo(util.mapX(i * xDelta), util.mapY(0) + 5);
+      this.ctx.stroke();
     }
-    ctx.restore();
+    this.ctx.restore();
   }
 
-  renderMathFunction(ctx, f) {
-    let first = true;
-
-    ctx.beginPath();
-    for (let x = util.minimumX(); x <= util.maximumX(); x += util.xStep()) {
-      // hardcode function for now
-      const y = Math.sin(x);
-      if (first) {
-        ctx.moveTo(util.mapX(x), util.mapY(y));
-        first = false;
-      } else {
-        ctx.lineTo(util.mapX(x), util.mapY(y));
-      }
-    }
-    ctx.stroke();
-  }
+  
 }

@@ -1,6 +1,9 @@
+import Simulation from './simulation';
+
 export default class SimulationView {
-  constructor(simulation, ctx) {
+  constructor(ctx) {
     this.ctx = ctx;
+    const simulation = new Simulation(ctx);
     this.simulation = simulation;
   }
 
