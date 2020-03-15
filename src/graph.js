@@ -6,13 +6,12 @@ export default class Graph {
   }
 
   draw() {
-    // Sample code for testing
     this.drawAxes(this.ctx);
   }
 
   // Returns the distance between ticks on the X axis:
   xTickDelta() {
-    return 1;
+    return 0.5;
   }
 
   // Returns the distance between ticks on the Y axis:
@@ -81,6 +80,4 @@ export default class Graph {
     }
     this.ctx.restore();
   }
-
-  
 }

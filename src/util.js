@@ -31,12 +31,12 @@ const util = {
 
   // Returns the right boundary of the logical viewport:
   maximumX() {
-    return 12;
+    return 10;
   },
 
   // Returns the left boundary of the logical viewport:
   minimumX() {
-    return -12;
+    return 0;
   },
 
   // Returns the top boundary of the logical viewport:
@@ -46,7 +46,7 @@ const util = {
 
   // Returns the bottom boundary of the logical viewport:
   minimumY() {
-    return (this.minimumX() * this.HEIGHT) / this.WIDTH;
+    return (-1*this.maximumX() * this.HEIGHT) / this.WIDTH;
   },
 
   xStep() {
