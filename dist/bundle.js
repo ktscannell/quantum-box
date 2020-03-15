@@ -904,9 +904,9 @@ var util = {
    +Y
    Positive x coordinates go to the right, and positive y coordinates go down.
    The origin in mathematics is the "center," and positive y goes *up*.
-   We'll refer to the mathematics coordinate system as the "logical"
+   We'll refer to the mathematics coordinate system as the "math"
   coordinate system, and the coordinate system for the canvas as the
-  "physical" coordinate system.
+  "canvas" coordinate system.
    The functions just below set up a mapping between the two coordinate
   systems.
    They're defined as functions, so that one wanted to, they could read
@@ -914,30 +914,30 @@ var util = {
    */
   HEIGHT: 800,
   WIDTH: 1200,
-  // Returns the right boundary of the logical viewport:
+  // Returns the right boundary of the math viewport:
   maximumX: function maximumX() {
     return 10;
   },
-  // Returns the left boundary of the logical viewport:
+  // Returns the left boundary of the math viewport:
   minimumX: function minimumX() {
     return 0;
   },
-  // Returns the top boundary of the logical viewport:
+  // Returns the top boundary of the math viewport:
   maximumY: function maximumY() {
     return this.maximumX() * this.HEIGHT / this.WIDTH;
   },
-  // Returns the bottom boundary of the logical viewport:
+  // Returns the bottom boundary of the math viewport:
   minimumY: function minimumY() {
     return -1 * this.maximumX() * this.HEIGHT / this.WIDTH;
   },
   xStep: function xStep() {
     return (this.maximumX() - this.minimumX()) / this.WIDTH;
   },
-  // Returns the physical x-coordinate of a logical x-coordinate:
+  // Returns the canvas x-coordinate of a math x-coordinate:
   mapX: function mapX(x) {
     return (x - this.minimumX()) / (this.maximumX() - this.minimumX()) * this.WIDTH;
   },
-  // Returns the physical y-coordinate of a logical y-coordinate:
+  // Returns the canvas y-coordinate of a math y-coordinate:
   mapY: function mapY(y) {
     return this.HEIGHT - (y - this.minimumY()) / (this.maximumY() - this.minimumY()) * (this.HEIGHT - 5);
   }
