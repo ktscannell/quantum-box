@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "webpack --watch --mode=development"
+    "watch": "webpack --watch --mode=development",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
