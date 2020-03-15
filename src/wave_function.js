@@ -5,13 +5,12 @@ export default class WaveFunction {
     this.ctx = ctx;
   }
 
-  draw(time) {
-    this.renderMathFunction(time);
+  draw(time, n) {
+    this.renderMathFunction(time, n);
   }
   
-  renderMathFunction(time) {
+  renderMathFunction(time, n) {
     const t = time/1000;
-    const n = parseInt(document.getElementById("input-n").value);
     let first = true;
 
     this.ctx.beginPath();

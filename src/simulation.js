@@ -12,9 +12,9 @@ export default class Simulation {
     this.waveFunction = new WaveFunction(ctx);
   }
 
-  draw(time) {
+  draw(time, n) {
     this.ctx.clearRect(0, 0, util.WIDTH, util.HEIGHT);
     this.graph.draw();
-    this.waveFunction.draw(time);
+    this.waveFunction.draw(time, n);
   }
 }

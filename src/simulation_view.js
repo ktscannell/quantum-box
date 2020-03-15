@@ -7,6 +7,19 @@ export default class SimulationView {
     this.ctx = ctx;
     const simulation = new Simulation(ctx);
     this.simulation = simulation;
+    this.n = 1
+    this.bindEventListeners();
+  }
+
+  bindEventListeners() {
+    const inputN = document.getElementById('input-n');
+    inputN.addEventListener('input', (e) => {
+      this.update('n', e.currentTarget.value);
+    });
+  }
+
+  update(field, value) {
+    this[field] = value;
   }
 
   start() {
@@ -15,7 +28,7 @@ export default class SimulationView {
   }
 
   animate(time) {
-    this.simulation.draw(time);
+    this.simulation.draw(time, this.n);
     this.lastTime = time;
     requestAnimationFrame(this.animate.bind(this));
   }
