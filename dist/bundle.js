@@ -226,7 +226,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".sidebar {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-evenly;\n  /* align-items: center; */\n\n  padding: 0 0 0 100px;\n}\n\n.input {\n  width: 40px;\n  margin: 0 20px 0 0;\n}\n\n.input-text {\n  font-size: 20px;\n  font-weight: 300;\n}\n\n.key {\n  height: 4px;\n  width: 50px;\n  margin-right: 20px;\n}\n\n.red {\n  background-color: red;\n}\n\n.blue {\n  background-color: blue;\n}\n\n.black {\n  background-color: black;\n}\n\n.key-container {\n  display: flex;\n  align-items: center;\n}", ""]);
+exports.push([module.i, ".sidebar {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-evenly;\n  /* align-items: center; */\n\n  padding: 0 0 0 100px;\n}\n\n.input {\n  width: 40px;\n  margin: 0 20px 0 0;\n}\n\n.input-text {\n  font-size: 20px;\n  font-weight: 300;\n}\n\n.key {\n  height: 4px;\n  width: 50px;\n  margin-right: 20px;\n}\n\n.red {\n  background-color: red;\n}\n\n.blue {\n  background-color: blue;\n}\n\n.black {\n  background-color: black;\n}\n\n.key-container {\n  display: flex;\n  align-items: center;\n}\n\n.info {\n  line-height: 1em;\n}", ""]);
 // Exports
 module.exports = exports;
 
