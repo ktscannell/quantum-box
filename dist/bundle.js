@@ -190,7 +190,7 @@ module.exports = exported;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "body {\n  font-family: 'Roboto', sans-serif;\n}\n.header {\n  display: flex;\n  justify-content: space-between;\n  background-color: lightgray;\n}\n\n.main-heading {\n  display: inline-block;\n}\n\n.title {\n  font-size: 30px;\n  \n  margin: 10px 0;\n}\n\n.subtitle {\n  font-size: 46px;\n  font-weight: 300;\n  margin: 0 0 20px 0;\n}\n\n.nav {\n  /* margin: 40px 0 0 0; */\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.nav-item{\n  font-weight: 300;\n  font-size: 20px;\n  margin: 0 40px;\n}\n\n.link {\n  text-decoration: none;\n  color: black;\n}\n\n.link:hover {\n  color: gray;\n}\n\n.main {\n  display: flex;\n}", ""]);
+exports.push([module.i, "body {\n  font-family: 'Roboto', sans-serif;\n}\n.header {\n  display: flex;\n  justify-content: space-between;\n  background-color: lightgray;\n  margin-bottom: 10px;\n}\n\n.main-heading {\n  display: inline-block;\n  margin-left: 40px;\n}\n\n.title {\n  font-size: 30px;\n  \n  margin: 10px 0;\n}\n\n.subtitle {\n  font-size: 46px;\n  font-weight: 300;\n  margin: 0 0 20px 0;\n}\n\n.nav {\n  /* margin: 40px 0 0 0; */\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.nav-item{\n  font-weight: 300;\n  font-size: 20px;\n  margin: 0 40px;\n}\n\n.link {\n  text-decoration: none;\n  color: black;\n}\n\n.link:hover {\n  color: gray;\n}\n\n.main {\n  display: flex;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -226,7 +226,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".sidebar {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-evenly;\n  align-items: center;\n\n  padding: 0 0 0 100px;\n}\n\n.input {\n  width: 40px;\n  margin: 0 0 0 10px;\n}\n\n.input-text {\n  font-size: 20px;\n  font-weight: 300;\n}", ""]);
+exports.push([module.i, ".sidebar {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-evenly;\n  /* align-items: center; */\n\n  padding: 0 0 0 100px;\n}\n\n.input {\n  width: 40px;\n  margin: 0 20px 0 0;\n}\n\n.input-text {\n  font-size: 20px;\n  font-weight: 300;\n}\n\n.key {\n  height: 4px;\n  width: 50px;\n  margin-right: 20px;\n}\n\n.red {\n  background-color: red;\n}\n\n.blue {\n  background-color: blue;\n}\n\n.black {\n  background-color: black;\n}\n\n.key-container {\n  display: flex;\n  align-items: center;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -666,7 +666,7 @@ var Graph = /*#__PURE__*/function () {
     key: "drawAxes",
     value: function drawAxes() {
       this.ctx.save();
-      this.ctx.strokeStyle = 'black';
+      this.ctx.strokeStyle = 'gray';
       this.ctx.lineWidth = 2; // +Y axis
 
       this.ctx.beginPath();
@@ -939,7 +939,7 @@ var util = {
   },
   // Returns the physical y-coordinate of a logical y-coordinate:
   mapY: function mapY(y) {
-    return this.HEIGHT - (y - this.minimumY()) / (this.maximumY() - this.minimumY()) * this.HEIGHT;
+    return this.HEIGHT - (y - this.minimumY()) / (this.maximumY() - this.minimumY()) * (this.HEIGHT - 5);
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (util);
@@ -978,6 +978,7 @@ var WaveFunction = /*#__PURE__*/function () {
       var t = time / 1000;
       this.renderRealWaveFunction(t, n);
       this.renderImaginaryWaveFunction(t, n);
+      this.renderProbabilityDistribution(n);
     } // This part of the wave equation is the same for both the real and 
     // imaginary parts
 
@@ -985,18 +986,34 @@ var WaveFunction = /*#__PURE__*/function () {
     key: "timeIndependentWaveEquation",
     value: function timeIndependentWaveEquation(n, x) {
       return _util__WEBPACK_IMPORTED_MODULE_0__["default"].maximumY() * Math.sin(n * Math.PI * x / _util__WEBPACK_IMPORTED_MODULE_0__["default"].maximumX());
+    } // This returns the probability distribution based on the real and
+    // imaginary parts of the wave function
+
+  }, {
+    key: "probabilityDistribution",
+    value: function probabilityDistribution(n, x) {
+      return Math.pow(_util__WEBPACK_IMPORTED_MODULE_0__["default"].maximumY(), 1) * Math.pow(Math.sin(n * Math.PI * x / _util__WEBPACK_IMPORTED_MODULE_0__["default"].maximumX()), 2);
+    }
+  }, {
+    key: "renderProbabilityDistribution",
+    value: function renderProbabilityDistribution(n) {
+      var _this = this;
+
+      this.renderMathFunction(function (x) {
+        return _this.probabilityDistribution(n, x);
+      }, 'black');
     } // given a value for time and energy level, render the real part of 
     // the wave function
 
   }, {
     key: "renderRealWaveFunction",
     value: function renderRealWaveFunction(t, n) {
-      var _this = this;
+      var _this2 = this;
 
       // this is the real part of the solution to the time dependent schrodinger's
       // equation for the particle in a box in 1-d, normalized to fit the graph
       var f = function f(x) {
-        return Math.cos(t) * _this.timeIndependentWaveEquation(n, x);
+        return Math.cos(t) * _this2.timeIndependentWaveEquation(n, x);
       };
 
       this.renderMathFunction(f, 'red');
@@ -1005,10 +1022,10 @@ var WaveFunction = /*#__PURE__*/function () {
   }, {
     key: "renderImaginaryWaveFunction",
     value: function renderImaginaryWaveFunction(t, n) {
-      var _this2 = this;
+      var _this3 = this;
 
       var f = function f(x) {
-        return -1 * Math.sin(t) * _this2.timeIndependentWaveEquation(n, x);
+        return -1 * Math.sin(t) * _this3.timeIndependentWaveEquation(n, x);
       };
 
       this.renderMathFunction(f, 'blue');

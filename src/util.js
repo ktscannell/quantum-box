@@ -52,6 +52,7 @@ const util = {
   xStep() {
     return (this.maximumX() - this.minimumX()) / this.WIDTH; 
   },
+
   // Returns the physical x-coordinate of a logical x-coordinate:
   mapX(x) {
     return ((x - this.minimumX()) /
@@ -61,7 +62,7 @@ const util = {
   // Returns the physical y-coordinate of a logical y-coordinate:
   mapY(y) {
     return this.HEIGHT - ((y - this.minimumY()) /
-      (this.maximumY() - this.minimumY())) * this.HEIGHT;
+      (this.maximumY() - this.minimumY())) * (this.HEIGHT - 5);
   }
 }
 

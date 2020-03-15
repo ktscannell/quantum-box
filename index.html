@@ -32,12 +32,29 @@
     </nav>
   </header>
   <main class="main">
-    <canvas id="myCanvas"></canvas>
+    <div class="outer-graph-container">
+      <div class="inner-graph-container">
+        <canvas id="myCanvas"></canvas>
+      </div>
+    </div>
     <div class="sidebar input-text">
-    <label>
-      Select the energy level, N!
-      <input class="input input-text" type="number" id="input-n" value="1">
-    </label>
+      <div class="key-container">
+        <div class="red key"></div>
+        <span>real part of the wave function</span>
+      </div>
+      <div class="key-container">
+        <div class="blue key"></div>
+        <span>imaginary part of the wave equation</span>
+      </div>
+      <div class="key-container">
+        <div class="black key"></div>
+        <span>probability distribution</span>
+      </div>
+      <label>
+        <input class="input input-text" type="number" id="input-n" value="1">
+        Select the energy level, N!
+      </label>
+    </div>
   </main>
 </body>
 </html>

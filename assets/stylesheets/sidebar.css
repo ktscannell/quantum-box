@@ -2,17 +2,40 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
+  /* align-items: center; */
 
   padding: 0 0 0 100px;
 }
 
 .input {
   width: 40px;
-  margin: 0 0 0 10px;
+  margin: 0 20px 0 0;
 }
 
 .input-text {
   font-size: 20px;
   font-weight: 300;
+}
+
+.key {
+  height: 4px;
+  width: 50px;
+  margin-right: 20px;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.black {
+  background-color: black;
+}
+
+.key-container {
+  display: flex;
+  align-items: center;
 }

@@ -5,10 +5,12 @@ body {
   display: flex;
   justify-content: space-between;
   background-color: lightgray;
+  margin-bottom: 10px;
 }
 
 .main-heading {
   display: inline-block;
+  margin-left: 40px;
 }
 
 .title {

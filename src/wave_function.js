@@ -9,12 +9,24 @@ export default class WaveFunction {
     const t = time / 1000;
     this.renderRealWaveFunction(t, n);
     this.renderImaginaryWaveFunction(t, n);
+    this.renderProbabilityDistribution(n);
   }
 
   // This part of the wave equation is the same for both the real and 
   // imaginary parts
   timeIndependentWaveEquation(n, x) {
     return util.maximumY() * Math.sin((n * Math.PI * x) / util.maximumX());
+  }
+
+  // This returns the probability distribution based on the real and
+  // imaginary parts of the wave function
+  probabilityDistribution(n, x) {
+    return Math.pow(util.maximumY(), 1) * 
+    Math.pow(Math.sin(n * Math.PI * x / util.maximumX()), 2);
+  }
+
+  renderProbabilityDistribution(n) {
+    this.renderMathFunction((x) => this.probabilityDistribution(n, x), 'black');
   }
 
   // given a value for time and energy level, render the real part of 
