@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Roboto', sans-serif;
+}
+
+.main-heading {
+  display: inline-block;
+}
+
+.title {
+  font-size: 30px;
+  
+  margin: 10px 0;
+}
+
+.subtitle {
+  font-size: 46px;
+  font-weight: 300;
+}
+
+.nav {
+  margin: 40px 0 0 0;
+  display: flex;
+  justify-content: space-between ;
+}
+
+.nav-item{
+  font-weight: 300;
+  font-size: 20px;
+  margin: 0 40px;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.link:hover {
+  color: gray;
+}

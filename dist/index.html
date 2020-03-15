@@ -5,13 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quantum Particle in a Box</title>
   <script src="bundle.js"></script>
+  <link 
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" 
+    rel="stylesheet"
+  >
 </head>
 <body>
-  <h1>Particle-in-a-box</h1>
-  <canvas id="myCanvas"></canvas>
-  <label>
-    Select the energy level, N!
-    <input type="number" id="input-n" value="1">
-  </label>
+  <header class="header">
+    <hgroup class="main-heading">
+      <h1 class="title">particle in a one-dimensional box</h1>
+      <h2 class="subtitle">the quantum mechanical model</h2>
+    </hgroup>
+    <nav class="nav">
+      <span class="nav-item">created by kieran scannell</span>
+      <a 
+        href="https://en.wikipedia.org/wiki/Particle_in_a_box"
+        class="nav-item link">
+        description of the model
+      </a>
+      <a href="https://github.com/ktscannell" class="nav-item link">github</a>
+      <a 
+        href="https://www.linkedin.com/in/kieran-scannell-31326574/" 
+        class="nav-item link">
+        linkedin
+      </a>
+    </nav>
+  </header>
+  <main class="main">
+    <canvas id="myCanvas"></canvas>
+    <div>
+    <label>
+      Select the energy level, N!
+      <input type="number" id="input-n" value="1">
+    </label>
+  </main>
 </body>
 </html>
