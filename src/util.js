@@ -61,7 +61,7 @@ const util = {
   // Returns the physical y-coordinate of a logical y-coordinate:
   mapY(y) {
     return this.HEIGHT - ((y - this.minimumY()) /
-      (this.maximumX() - this.minimumY())) * this.HEIGHT;
+      (this.maximumY() - this.minimumY())) * this.HEIGHT;
   }
 }
 

@@ -22,6 +22,7 @@ export default class Graph {
   // DrawAxes draws the X ad Y axes, with tick marks.
   drawAxes() {
     this.ctx.save();
+    this.ctx.strokeStyle = 'black';
     this.ctx.lineWidth = 2;
     // +Y axis
     this.ctx.beginPath();

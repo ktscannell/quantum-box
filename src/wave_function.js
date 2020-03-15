@@ -29,6 +29,8 @@ export default class WaveFunction {
         this.ctx.lineTo(util.mapX(x), util.mapY(y));
       }
     }
+    this.ctx.lineWidth = 4;
+    this.ctx.strokeStyle = 'gray';
     this.ctx.stroke();
   }
 }

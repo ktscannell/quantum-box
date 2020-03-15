@@ -1,7 +1,10 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
 .header {
   display: flex;
   justify-content: space-between;
-  font-family: 'Roboto', sans-serif;
+  background-color: lightgray;
 }
 
 .main-heading {
@@ -17,12 +20,14 @@
 .subtitle {
   font-size: 46px;
   font-weight: 300;
+  margin: 0 0 20px 0;
 }
 
 .nav {
-  margin: 40px 0 0 0;
+  /* margin: 40px 0 0 0; */
   display: flex;
-  justify-content: space-between ;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav-item{
@@ -38,4 +43,8 @@
 
 .link:hover {
   color: gray;
+}
+
+.main {
+  display: flex;
 }
