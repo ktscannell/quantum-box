@@ -5,24 +5,31 @@ export default class WaveFunction {
     this.ctx = ctx;
   }
 
-  draw() {
-    this.renderMathFunction(this.ctx);
+  draw(time) {
+    this.renderMathFunction(time);
   }
-  renderMathFunction(ctx, f) {
+  
+  renderMathFunction(time) {
+    const t = time/1000;
     const n = parseInt(document.getElementById("input-n").value);
     let first = true;
 
-    ctx.beginPath();
+    this.ctx.beginPath();
     for (let x = util.minimumX(); x <= util.maximumX(); x += util.xStep()) {
-      // hardcode function for now
-      const y = util.maximumY()*Math.sin((n*Math.PI*x)/util.maximumX());
+      
+      // non-time dependent function f(x)
+      const f = util.maximumY() * Math.sin((n * Math.PI * x) / util.maximumX());
+      
+      // add time dependency
+      const y = Math.cos(t) * f;
+
       if (first) {
-        ctx.moveTo(util.mapX(x), util.mapY(y));
+        this.ctx.moveTo(util.mapX(x), util.mapY(y));
         first = false;
       } else {
-        ctx.lineTo(util.mapX(x), util.mapY(y));
+        this.ctx.lineTo(util.mapX(x), util.mapY(y));
       }
     }
-    ctx.stroke();
+    this.ctx.stroke();
   }
 }

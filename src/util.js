@@ -46,7 +46,7 @@ const util = {
 
   // Returns the bottom boundary of the logical viewport:
   minimumY() {
-    return (-1*this.maximumX() * this.HEIGHT) / this.WIDTH;
+    return (-1 * this.maximumX() * this.HEIGHT) / this.WIDTH;
   },
 
   xStep() {
