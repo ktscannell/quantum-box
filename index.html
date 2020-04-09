@@ -40,27 +40,54 @@
     </nav>
   </header>
   <main class="main">
-    <canvas id="myCanvas"></canvas>
+    <div class="graph">
+      <canvas id="myCanvas"></canvas>
+      <div class="axis-text"><strong>The horizontal axis displays a line segment that has a particle
+        'trapped' in its boundaries.</strong> <br> This represents a one-dimensional 'box'
+      </strong></div>
+    </div>
     <div class="sidebar input-text">
       <span class="info">
-        this graph displays magnitude on the y axis 
-        <br>as a function of position on the x axis
+        <strong>The vertical axis displays the magnitude of the wave function.</strong> <br>
+        this corresponds to the likelihood that the particle will be found
+        at any particular position along the x-axis.
       </span>
       <div class="key-container">
         <div class="red key"></div>
-        <span>real part of the wave function</span>
+        <span><strong>The red line represents one part of the wave equation.</strong> <br> We call it the 'real' part
+          because it doesn't involve imaginary numbers (these numbers rely on the square root of -1).
+        </span>
       </div>
       <div class="key-container">
         <div class="blue key"></div>
-        <span>imaginary part of the wave equation</span>
+        <span><strong>The blue line represent the other part of the wave equation.</strong> <br> We call it the 'imaginary' part
+          because it involves using the square root of -1.
+        </span>
+      </div>
+      <div class="key-container">
+        <span><strong>Together, the red and blue lines represent the solution to Schrodinger's equation.</strong> <br>
+          This famous equation is a differential equation that describes how electrons, photons, and other
+          very small particles behave. One fascinating takeaway is that these particles have a 'wave-like' quality to them.
+          This animation shows that 'wave-like' quality!
+        </span>
       </div>
       <div class="key-container">
         <div class="black key"></div>
-        <span>probability distribution</span>
+        <span><strong> The black line represents the probability distribution.</strong> <br>
+          This tells us the likelihood of
+          finding the particle at any given position along the horizonal axis. 
+          For example, when the black is at its peak, that shows the most likely place
+          to find the particle. We obtain the black line by multiplying the red equation together with the blue equation.
+        </span>
       </div>
       <label>
         <input class="input input-text" type="number" id="input-n" value="1">
-        Select the energy level, N!
+        <strong>Select the energy level, N.</strong> <br>
+         Another fascinating consequence of the Schrodinger Equation is
+        what is called the quantization of energy. This means that the particle can only have 
+        certain discrete amounts of energy, that correspond to N squared, or N x N, where
+        N is a positive integer. Different energy levels give different wave equations.
+        Change the value in the box to see this!
       </label>
     </div>
   </main>

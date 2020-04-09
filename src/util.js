@@ -26,8 +26,8 @@ const util = {
  
  */
 
-  HEIGHT: 800,
-  WIDTH: 1200,
+  HEIGHT: 600,
+  WIDTH: 1000,
 
   // Returns the right boundary of the math viewport:
   maximumX() {

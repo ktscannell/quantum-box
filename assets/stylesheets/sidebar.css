@@ -43,3 +43,9 @@
 .info {
   line-height: 1em;
 }
+
+.axis-text {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 300;
+}
